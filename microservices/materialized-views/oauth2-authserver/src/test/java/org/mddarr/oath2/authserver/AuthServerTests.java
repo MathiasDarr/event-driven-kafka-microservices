@@ -1,4 +1,4 @@
-package demo;
+package org.mddarr.oath2.authserver;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -24,7 +24,7 @@ import org.springframework.util.MultiValueMap;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment=WebEnvironment.RANDOM_PORT)
-public class ApplicationTests {
+public class AuthServerTests {
 
 	@LocalServerPort
 	private int port;
@@ -34,7 +34,7 @@ public class ApplicationTests {
 	@Test
 	public void homePageProtected() {
 		ResponseEntity<String> response = template.getForEntity("http://localhost:"
-				+ port + "/uaa/", String.class);
+				+ port + "/rides/", String.class);
 		assertEquals(HttpStatus.UNAUTHORIZED, response.getStatusCode());
 		String auth = response.getHeaders().getFirst("WWW-Authenticate");
 		assertTrue("Wrong header: " + auth, auth.startsWith("Bearer realm=\""));
@@ -43,7 +43,7 @@ public class ApplicationTests {
 	@Test
 	public void userEndpointProtected() {
 		ResponseEntity<String> response = template.getForEntity("http://localhost:"
-				+ port + "/uaa/user", String.class);
+				+ port + "/rides/user", String.class);
 		assertEquals(HttpStatus.UNAUTHORIZED, response.getStatusCode());
 		String auth = response.getHeaders().getFirst("WWW-Authenticate");
 		assertTrue("Wrong header: " + auth, auth.startsWith("Bearer realm=\""));
@@ -52,17 +52,17 @@ public class ApplicationTests {
 	@Test
 	public void authorizationRedirects() {
 		ResponseEntity<String> response = template.getForEntity("http://localhost:"
-				+ port + "/uaa/oauth/authorize", String.class);
+				+ port + "/rides/oauth/authorize", String.class);
 		assertEquals(HttpStatus.FOUND, response.getStatusCode());
 		String location = response.getHeaders().getFirst("Location");
 		assertTrue("Wrong header: " + location,
-				location.startsWith("http://localhost:" + port + "/uaa/login"));
+				location.startsWith("http://localhost:" + port + "/rides/login"));
 	}
 
 	@Test
 	public void loginSucceeds() {
 		ResponseEntity<String> response = template.getForEntity("http://localhost:"
-				+ port + "/uaa/login", String.class);
+				+ port + "/rides/login", String.class);
 		String csrf = getCsrf(response.getBody());
 		MultiValueMap<String, String> form = new LinkedMultiValueMap<String, String>();
 		form.set("username", "user");
@@ -72,9 +72,9 @@ public class ApplicationTests {
 		headers.put("COOKIE", response.getHeaders().get("Set-Cookie"));
 		RequestEntity<MultiValueMap<String, String>> request = new RequestEntity<MultiValueMap<String, String>>(
 				form, headers, HttpMethod.POST, URI.create("http://localhost:" + port
-						+ "/uaa/login"));
+						+ "/rides/login"));
 		ResponseEntity<Void> location = template.exchange(request, Void.class);
-		assertEquals("http://localhost:" + port + "/uaa/",
+		assertEquals("http://localhost:" + port + "/rides/",
 				location.getHeaders().getFirst("Location"));
 	}
 

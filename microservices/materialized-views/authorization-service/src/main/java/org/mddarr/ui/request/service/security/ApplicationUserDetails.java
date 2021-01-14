@@ -34,15 +34,6 @@ public class ApplicationUserDetails implements UserDetailsService {
             throw new UsernameNotFoundException(String.format("User with email %s could not be found", email));
         }
     }
-//        if (optionalUser.isPresent()) {
-//            return new ApplicationUserDetails();
-//        } else {
-//            throw new UsernameNotFoundException(String.format("User with email %s could not be found", email));
-//        }
-
-//                .orElseThrow(() -> new UsernameNotFoundException( //<4>
-//                        String.format("User with email %s could not be found", email)));
-
 
 
 }

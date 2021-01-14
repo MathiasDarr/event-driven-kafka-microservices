@@ -1,4 +1,4 @@
-package demo;
+package org.mddarr.oath2.authserver;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;

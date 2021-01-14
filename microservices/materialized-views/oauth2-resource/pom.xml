@@ -14,8 +14,8 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>1.5.6.RELEASE</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<version>2.4.1</version>
+
 	</parent>
 
 	<dependencyManagement>
@@ -86,7 +86,7 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<start-class>demo.ResourceApplication</start-class>
+		<start-class>org.mddarr.oath2.authserver.ResourceApplication</start-class>
 		<java.version>1.8</java.version>
 	</properties>
 
