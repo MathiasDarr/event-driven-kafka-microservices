@@ -19,8 +19,9 @@
 		<java.version>11</java.version>
 	</properties>
 	<modules>
-
-        <module>materialized-views</module>
+		<module>avro-schema</module>
+		<module>rides-services</module>
+<!--        <module>authorization-services</module>-->
 
 	</modules>
 
