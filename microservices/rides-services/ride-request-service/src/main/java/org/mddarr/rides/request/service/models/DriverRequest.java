@@ -9,7 +9,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 public class DriverRequest {
-
     private String driverid;
     private String first_name;
     private String last_name;
