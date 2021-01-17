@@ -18,6 +18,8 @@
     
     <modules>
         <module>ride-request-service</module>
+        <module>socket-service</module>
+        <module>reactive-cassandra-websockets</module>
     </modules>
     <repositories>
         <repository>

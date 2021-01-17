@@ -13,6 +13,4 @@ public interface RideCoordinatesRepository extends CassandraRepository<RideCoord
     @Query("SELECT * FROM coordinates WHERE rideid=?0")
     List<RideCoordinate> getRideCoordinates(String rideid);
 
-
-
 }
