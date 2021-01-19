@@ -12,3 +12,4 @@ This module contains a microservice whose responsability is to issue JWT tokens 
 * dispatch-service
     * microservice consumes from the 'ride requests' & 'topics', performing stateful stream processing, & assigning a driver w/ a rider who has a requested a rider. 
 
+mvn clean package -Dmaven.test.skip=true

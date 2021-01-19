@@ -39,11 +39,6 @@ public class RequestApiTests extends UatAbstractTest {
                 .uri(URI.create("/resource"))
                 .body(BodyInserters.fromObject("data"));
 
-//        String response2 = request1.
-//                .block()
-//                .bodyToMono(String.class)
-//                .block();
-
 
     }
 
