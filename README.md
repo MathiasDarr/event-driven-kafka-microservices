@@ -4,7 +4,7 @@ This repository contains microservices implemented using Spring, frontend develo
 * Front end developed using Vue JS
 * Python scripts for seeding postgres & cassandra databases
 
-<img src ="https://dakobed-images.s3-us-west-2.amazonaws.com/architecture_diagram.png" width ="1200" height="800">
+<img src ="https://dakobed-images.s3-us-west-2.amazonaws.com/architecture_diagram.png" width ="1200" height="650">
 
 ## This repository contains ##
 * [Data Model](data_model/README.md)
