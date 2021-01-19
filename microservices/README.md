@@ -1,39 +1,14 @@
+### Microservices ###
+This directory contains microservices developed using Spring Boot & Kafka 
 
 
-var ws;
-if (window.WebSocket){
-    ws = new WebSocket("http://localhost:8080");
-    ws.onopen = function(){
-        console.log("onopen");
-    };
-    ws.onmessage = function (e) {
-        console.log("echo from server " + e.data);
-    };
-    ws.onclose = function(){
-        console.log("onclose");
-    };
-    ws.onerror = function(){
-        console.log("onerror");
-    };
-}
-else { console.log("WebSocket not supported in your browser");}
+## Authoirzation Serivices ##
+This module contains a microservice whose responsability is to issue JWT tokens to authenticated users
 
+# Rides Service Module
+* ride-request-service
+    * Client facing spring boot microservice which listens to riders & drivers making ride requests.  Writes requests to 'ride requests' & 'drivers'  topics, entering them into the ride matching pool.  
 
+* dispatch-service
+    * microservice consumes from the 'ride requests' & 'topics', performing stateful stream processing, & assigning a driver w/ a rider who has a requested a rider. 
 
-var ws;
-if (window.WebSocket){
-    ws = new WebSocket("ws://localhost:8080/websocket");
-    ws.onopen = function(){
-        console.log("onopen");
-    };
-    ws.onmessage = function (e) {
-        console.log("echo from server " + e.data);
-    };
-    ws.onclose = function(){
-        console.log("onclose");
-    };
-    ws.onerror = function(){
-        console.log("onerror");
-    };
-}
-else { console.log("WebSocket not supported in your browser");}

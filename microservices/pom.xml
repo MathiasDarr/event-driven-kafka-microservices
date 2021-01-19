@@ -21,6 +21,10 @@
 	<modules>
 		<module>avro-schema</module>
 		<module>rides-services</module>
+<!--		<module>event-producer</module>-->
+<!--		<module>authorization-services</module>-->
+
+
 <!--        <module>authorization-services</module>-->
 
 	</modules>

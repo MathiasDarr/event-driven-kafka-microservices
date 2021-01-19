@@ -37,6 +37,7 @@ public abstract class UatAbstractTest {
     private EmbeddedKafkaBroker kafkaEmbedded;
 
     protected Consumer<String, AvroRideRequest> rideRequestConsumer;
+
     protected Consumer<String, AvroDriver> avroDriverConsumer;
 
 
@@ -53,9 +54,12 @@ public abstract class UatAbstractTest {
         configs.put("schema.registry.url", "not-used");
 
         rideRequestConsumer = new DefaultKafkaConsumerFactory<String, AvroRideRequest>(configs).createConsumer("in-test-consumer", "10");
+
         avroDriverConsumer = new DefaultKafkaConsumerFactory<String, AvroDriver>(configs).createConsumer("in-test-consumer", "10");
 
+
         kafkaProperties.buildConsumerProperties();
+
 
         rideRequestConsumer.subscribe(Lists.newArrayList(Constants.RIDE_REQUEST_TOPIC));
         avroDriverConsumer.subscribe(Lists.newArrayList(Constants.DRIVERS_TOPIC));
@@ -64,6 +68,8 @@ public abstract class UatAbstractTest {
     @After
     public void reset() {
         //consumers needs to be closed because new one are created before every test
+
+
         rideRequestConsumer.close();
         avroDriverConsumer.close();
 
