@@ -13,12 +13,9 @@
     <packaging>pom</packaging>
 
     <modules>
-<!--        <module>avro-schema </module>-->
-<!--        <module>auth-service</module>-->
-        <module>auth-service</module>
+        <module>
 
-<!--        <module>user-authorization-service</module>-->
-
+        </module>
     </modules>
 
     <repositories>

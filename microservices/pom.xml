@@ -19,15 +19,8 @@
 		<java.version>11</java.version>
 	</properties>
 	<modules>
-<!--		<module>avro-schema</module>-->
-<!--		<module>rides-services</module>-->
-        <module>pricing-services</module>
-        <!--		<module>event-producer</module>-->
-<!--		<module>authorization-services</module>-->
-
-
-<!--        <module>authorization-services</module>-->
-
+		<module>ride-request-service</module>
+		<module>avro-schema</module>
 	</modules>
 
 	<repositories>
