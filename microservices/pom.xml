@@ -21,7 +21,7 @@
 	<modules>
 		<module>ride-request-service</module>
 		<module>avro-schema</module>
-		<module>complete</module>
+		<module>rest-service-cors</module>
 	</modules>
 
 	<repositories>
