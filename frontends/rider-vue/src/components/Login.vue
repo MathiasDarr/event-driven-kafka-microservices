@@ -42,32 +42,70 @@
                 <p>Don't have an account? - <router-link to="/register">Register Now</router-link></p> 
             </div>
         </form>
+
+
+    {{getAuthToken}}
     </div>
 </template>
 
 <script>
+
+
+import axios from 'axios';
+import { mapActions, mapGetters } from "vuex";
+import router from '../router'
+
 export default {
+ computed:{
+    ...mapGetters(["getAuthToken"])
+ },
   name: 'Login',
   data () {
     return {
-      email: '',
-      password: '',
+      email: 'deb@gmail.com',
+      password: 'password',
       error: null,
       loading: false
     }
   },
   methods: {
-    login () {
-        this.loading = true
-        /*eslint no-unused-vars: "off"*/
-        this.$cognitoAuth.authenticate(this.email, this.password, (err, result) => {
-            if (err) {
-                this.error = err
-                this.loading = false
-            } else {
-                this.$router.push('/profile')
-            }
-        });
+
+    ...mapActions(["setAuthToken"]),
+    async async_login(){
+        try{
+            this.loading = true
+                /*eslint no-unused-vars: "off"*/
+
+            var url = "http://localhost:8096/api/auth/login"
+            var body = {email:"deb@gmail.com", password:"password"}
+
+
+            axios.post(url, body).then((response) => {
+                console.log(response.data.email)
+                
+                var tokens = response.data
+                this.loading = false;
+                this.setAuthToken(tokens)
+                this.loading = false;
+                router.push({path:"/landing"})
+            }, (error) => {
+                    
+            console.log(error);
+            this.loading = false
+            });
+                
+        }catch(err){
+            console.log(err)
+        }
+    },
+
+
+
+    async login () {
+        
+        this.async_login()
+
+
     }
   }
 }

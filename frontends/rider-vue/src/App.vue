@@ -63,11 +63,7 @@ export default {
         menuItems:[
           {title:'Rides', route:'/' }, 
           {title:'Login', route:'/login/' }, 
-          {title:'Upload', route:'/profile/' },
 
-          // {title: 'Kafka Microservices', route:'/eventservices' },
-          // {title: 'Style Transfer', route:'/style' }
-          // // {title:'Style Transfer', icon:'image-filter-hdr', route:'/styletransfer/' },
 
         ],
 

@@ -39,6 +39,17 @@ const actions = {
     },
 
     async authentication({commit}, email, password){
+        var url = "http://localhost:8080/api/auth/login"
+        var body = {email:"deb@gmail.com", password:"password"}
+
+
+        axios.post(url, body).then((response) => {
+            console.log(response)
+          }, (error) => {
+            
+          console.log(error);
+        });
+
 
     },
 

@@ -73,6 +73,21 @@
 import router from '../router'
 
 export default {
+  
+  created(){
+
+    var url = "http://localhost:8080/api/auth/login"
+    var body = {email:"deb@gmail.com", password:"password"}
+
+
+    axios.post(url, body).then((response) => {
+      console.log(response)
+    }, (error) => {
+            
+    console.log(error);
+    });
+  },
+  
   components:{
 
   },
@@ -88,7 +103,11 @@ export default {
 
   description: 'Autocomplete Example (#164)',
 
-  methods: {
+
+
+
+
+methods: {
 
     setDescription(description) {
       this.description = description;

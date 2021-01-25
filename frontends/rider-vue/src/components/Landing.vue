@@ -72,6 +72,7 @@ export default {
     var split = name.split("@")
     console.log("Welcome " + split[0])
     console.log("welcome..")
+    console.log("THE EMAI LIS " + this.getEmail)
 
   },
   data(){
@@ -102,7 +103,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(["getLoggedIn","getJwtAccessToken", "getIdToken"]),
+    ...mapGetters(["getEmail"]),
 
   },
 }
