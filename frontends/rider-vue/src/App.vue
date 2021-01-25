@@ -61,7 +61,7 @@ export default {
     return {
         drawer: false,
         menuItems:[
-          {title:'Rides', route:'/' }, 
+          {title:'Rides', route:'/landing' }, 
           {title:'Login', route:'/login/' }, 
 
 

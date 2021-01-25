@@ -79,7 +79,6 @@ export default {
             var url = "http://localhost:8096/api/auth/login"
             var body = {email:"deb@gmail.com", password:"password"}
 
-
             axios.post(url, body).then((response) => {
                 console.log(response.data.email)
                 
@@ -88,6 +87,7 @@ export default {
                 this.setAuthToken(tokens)
                 this.loading = false;
                 router.push({path:"/landing"})
+
             }, (error) => {
                     
             console.log(error);

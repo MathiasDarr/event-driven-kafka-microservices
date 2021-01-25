@@ -1,18 +1,16 @@
-package org.mddarr.ride.request.service;
+package org.mddarr.cors.requests;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @SpringBootApplication
-@EnableWebMvc
-public class RideRequestApplication {
+public class RestServiceCorsApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(RideRequestApplication.class, args);
+		SpringApplication.run(RestServiceCorsApplication.class, args);
 	}
 
 	@Bean
@@ -20,10 +18,9 @@ public class RideRequestApplication {
 		return new WebMvcConfigurer() {
 			@Override
 			public void addCorsMappings(CorsRegistry registry) {
-				registry.addMapping("/**").allowedOrigins("http://localhost:8080");
+				registry.addMapping("/rides/requests").allowedOrigins("http://localhost:8080");
 			}
 		};
 	}
-
 
 }

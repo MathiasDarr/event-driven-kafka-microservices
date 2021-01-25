@@ -35,7 +35,7 @@ public class AuthController {
     }
 
     @PostMapping("/login")
-    @CrossOrigin(origins = "http://localhost:8080", allowCredentials = "true", allowedHeaders = "*", exposedHeaders = "If-Match")
+    @CrossOrigin(origins = "http://localhost:8080", allowedHeaders = "*", exposedHeaders = "If-Match")
     public AuthenticationResponse login(@RequestBody LoginRequest loginRequest) {
         return authorizationService.login(loginRequest);
     }

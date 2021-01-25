@@ -6,7 +6,16 @@ Vue.config.productionTip = false
 import router from './router.js'
 import cognitoAuth from './cognito'
 
+import * as VueGoogleMaps from 'gmap-vue'
 
+Vue.use(VueGoogleMaps, {
+  load: {
+    key: 'AIzaSyD1MQSxcqK4KNG-0b5co-Ev5qQGzlExYEM',
+    libraries: 'places', 
+  },
+
+  installComponents: true
+})
 
 
 

@@ -69,6 +69,7 @@ public class JwtProvider {
     }
 
     public boolean validateToken(String jwt) {
+        System.out.println("THE JWT IS " + jwt);
         parser().setSigningKey(getPublickey()).parseClaimsJws(jwt);
         return true;
     }
