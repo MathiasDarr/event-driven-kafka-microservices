@@ -36,7 +36,7 @@
             </div> -->
             <div class="center-align">
                 <br/>
-                <v-btn class="error mt4" @click="login()" > Login </v-btn>
+                <v-btn id="login-btn" class="error mt4" @click="login()" > Login </v-btn>
                 <!-- <button v-on:click="login()" class="btn btn-default btn-large">login</button> -->
                 <hr/>
                 <p>Don't have an account? - <router-link to="/register">Register Now</router-link></p> 
