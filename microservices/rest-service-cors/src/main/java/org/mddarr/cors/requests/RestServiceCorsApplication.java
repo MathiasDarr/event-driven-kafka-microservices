@@ -18,7 +18,7 @@ public class RestServiceCorsApplication {
 		return new WebMvcConfigurer() {
 			@Override
 			public void addCorsMappings(CorsRegistry registry) {
-				registry.addMapping("/rides/requests").allowedOrigins("http://localhost:8080");
+				registry.addMapping("/rides/users").allowedOrigins("http://localhost:8080");
 			}
 		};
 	}

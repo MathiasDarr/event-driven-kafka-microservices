@@ -1,4 +1,4 @@
-package org.mddarr.cors.requests;
+package org.mddarr.cors.requests.controllers;
 
 import java.util.concurrent.atomic.AtomicLong;
 
@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class GreetingController {
+public class RideRequestController {
 
 	@CrossOrigin(origins = "http://localhost:8080")
 	@GetMapping("/rides/requests")

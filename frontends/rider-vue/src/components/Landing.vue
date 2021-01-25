@@ -84,7 +84,7 @@ export default {
     },
     async postRideRequest(){
         console.log("WERDF")
-        var url = "http://localhost:8096/rides/requests"
+        var url = "http://localhost:8096/rides/users"
 
         const response = await axios.get(url, {
             headers: {
