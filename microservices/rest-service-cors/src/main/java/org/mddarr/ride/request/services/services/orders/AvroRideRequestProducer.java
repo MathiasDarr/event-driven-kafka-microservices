@@ -1,8 +1,10 @@
 package org.mddarr.ride.request.services.services.orders;
 
 
+import org.mddarr.ride.request.services.Constants;
 import org.mddarr.ride.request.services.dto.rideshare.DriverRequest;
 import org.mddarr.rides.event.dto.AvroDriver;
+import org.mddarr.rides.event.dto.AvroDriverState;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,8 +27,9 @@ public class AvroRideRequestProducer implements AvroProducerInterface {
                 .setLastname(driverRequest.getLast_name())
                 .setDriverid(driverRequest.getDriverid())
                 .setSeats(driverRequest.getSeats())
+                .setState(AvroDriverState.ACTIVE)
                 .build();
-
+        kafkaTemplateEvent1.send(Constants.DRIVER_TOPIC, "Seattle", avroDriver);
     }
 
 }
