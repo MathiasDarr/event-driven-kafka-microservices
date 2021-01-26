@@ -1,7 +1,7 @@
-package org.mddarr.ride.request.services;
+package org.mddarr.ride.request.services.authorization;
+
 
 import java.net.URI;
-
 import org.junit.jupiter.api.Test;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,23 +13,30 @@ import org.springframework.http.RequestEntity;
 import org.springframework.http.ResponseEntity;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class GreetingIntegrationTests {
+public class CorsIntegrationTests {
 
 	@Autowired
 	private TestRestTemplate restTemplate;
-//
-//	@Test
-//	public void corsWithAnnotation() throws Exception {
-//		ResponseEntity<Greeting> entity = this.restTemplate.exchange(
-//				RequestEntity.get(uri("/greeting")).header(HttpHeaders.ORIGIN, "http://localhost:8080").build(),
-//				Greeting.class);
-//		assertEquals(HttpStatus.OK, entity.getStatusCode());
-//		assertEquals("http://localhost:8080", entity.getHeaders().getAccessControlAllowOrigin());
-//		Greeting greeting = entity.getBody();
-//		assertEquals("Hello, World!", greeting.getContent());
-//	}
+
+	@Test
+	public void corsWithAnnotation() throws Exception {
+		ResponseEntity<String> entity = this.restTemplate.exchange(
+				RequestEntity.get(URI.create("/rides/requests")).header(HttpHeaders.ORIGIN, "http://localhost:8080").build(),
+				String.class);
+		assertNotEquals(HttpStatus.OK, entity.getStatusCode());
+		assertEquals("http://localhost:8080", entity.getHeaders().getAccessControlAllowOrigin());
+
+	}
+
+
+
+
+
+
+
 //
 //	@Test
 //	public void corsWithJavaconfig() {

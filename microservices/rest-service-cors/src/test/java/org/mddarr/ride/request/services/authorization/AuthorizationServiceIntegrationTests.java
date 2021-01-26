@@ -1,0 +1,41 @@
+package org.mddarr.ride.request.services.authorization;
+
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+
+import org.mddarr.ride.request.services.dto.auth.RegisterRequest;
+import org.mddarr.ride.request.services.repositories.UserRepository;
+import org.mddarr.ride.request.services.services.auth.AuthorizationService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
+
+@SpringBootTest
+@ExtendWith(SpringExtension.class)
+public class AuthorizationServiceIntegrationTests {
+
+    @MockBean
+    UserRepository userRepository;
+
+    @Autowired
+    AuthorizationService authorizationService;
+
+    @Test
+    void testPostRider(){
+        String firstname = "Charles";
+        String lastname = "Woodson";
+        String email = "cwoodson@yahoo.com";
+        String password = "password";
+
+        RegisterRequest postProviderRequest = RegisterRequest.builder()
+                .email(email)
+                .firstname(firstname)
+                .lastname(lastname)
+                .password(password)
+                .build();
+        authorizationService.register(postProviderRequest);
+    }
+
+
+}
